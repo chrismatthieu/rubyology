@@ -1,3 +1,9 @@
 == Rubyology Podcast (http://rubyology.com)
 
 Upgraded from Rails 1.2.5 to Rails 3.1 :)
+
+== Heroku Deployment Notes
+
+run this locally before deploying to heroku
+- bundle install --without production
+- heroku config:add BUNDLE_WITHOUT="development:test"
