@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110728003357) do
+ActiveRecord::Schema.define(:version => 20110803213119) do
+
+  create_table "podcasts", :force => true do |t|
+    t.string   "podname"
+    t.text     "poddesc"
+    t.string   "podurl"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username"

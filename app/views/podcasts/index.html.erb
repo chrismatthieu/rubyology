@@ -1,0 +1,55 @@
+<% for podcast in @podcasts %>
+
+	<p class="date"><%= podcast.created_at %> </p>
+	<h2 class="title"><a href="/podcasts/<%=podcast.id%>"><%= podcast.podname %></a></h2>
+	<p class="meta"><small>Posted by <a href="http://twitter.com/chrismatthieu">@ChrisMatthieu</a> </small></p>
+	<div class="entry">
+		    <% if podcast.podurl == "mov" %>
+
+			      <span>
+				<!a href="http://s3.amazonaws.com/rubyology/rubyology<%= podcast.id %>.mov">
+				<a href="/mp3s/rubyology<%= podcast.id %>.mov">Download Screen Cast</a></span>
+
+			<% else %>
+
+		      <p>
+		      <script language="JavaScript" src="/mp3s/audio-player.js"></script>
+		      <object type="application/x-shockwave-flash" data="/mp3s/player.swf" id="audioplayer1" height="24" width="290">
+		      <param name="movie" value="/mp3s/player.swf">
+		      <!-- param name="FlashVars" value="playerID=1&amp;soundFile=http://s3.amazonaws.com/rubyology/rubyology<%= podcast.id %>.mp3" -->
+				<% if podcast.podurl.blank? or podcast.podurl == "mp3" %>
+		      		<param name="FlashVars" value="playerID=1&amp;soundFile=/mp3s/rubyology<%= podcast.id %>.mp3">
+				<% else %>
+		      		<param name="FlashVars" value="playerID=1&amp;soundFile=<%= podcast.podurl %>">
+				<% end %>
+		      <param name="quality" value="high">
+		      <param name="menu" value="false">
+		      <param name="wmode" value="transparent">
+		      </object>
+
+		      <br>
+		      <%# podcast.podurl %></p>
+
+		    <% end %>
+
+		    <p><%= podcast.poddesc %></p>
+
+		    <% if @current_user && @current_user.admin %>
+		      <p><%= link_to 'Edit', :action => 'edit', :id => podcast %> | <%= link_to 'Destroy', { :action => 'destroy', :id => podcast }, :confirm => 'Are you sure?', :method => :podcast %></p>
+		    <% end %>
+		
+	</div>
+
+<% end %>
+
+<%# link_to 'Previous page', { :page => @podcast_pages.current.previous } if @podcast_pages.current.previous %>
+<%# link_to 'Next page', { :page => @podcast_pages.current.next } if @podcast_pages.current.next %> 
+
+<br />
+
+<% if @current_user && @current_user.admin %>
+  <%= link_to 'New podcast', :action => 'new' %>
+<% end %>
+
+
+

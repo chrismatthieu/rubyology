@@ -1,4 +1,4 @@
-Nutelo::Application.configure do
+Rubyology::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -12,7 +12,7 @@ Nutelo::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
-  config.assets.compress = true
+  config.assets.compress = false
 
   # Specifies the header that your server uses for sending files
   # (comment out if your front-end server doesn't support this)

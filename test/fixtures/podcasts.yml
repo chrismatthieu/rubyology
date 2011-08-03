@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  podname: MyString
+  poddesc: MyText
+  podurl: MyString
+
+two:
+  podname: MyString
+  poddesc: MyText
+  podurl: MyString

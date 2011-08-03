@@ -1,0 +1,29 @@
+<%= form_for(@podcast) do |f| %>
+  <% if @podcast.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@podcast.errors.count, "error") %> prohibited this podcast from being saved:</h2>
+
+      <ul>
+      <% @podcast.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :podname %><br />
+    <%= f.text_field :podname %>
+  </div>
+  <div class="field">
+    <%= f.label :poddesc %><br />
+    <%= f.text_area :poddesc %>
+  </div>
+  <div class="field">
+    <%= f.label :podurl %><br />
+    <%= f.text_field :podurl %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

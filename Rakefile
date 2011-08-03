@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Nutelo::Application.load_tasks
+Rubyology::Application.load_tasks

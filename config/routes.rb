@@ -1,4 +1,6 @@
-Nutelo::Application.routes.draw do
+Rubyology::Application.routes.draw do
+  resources :podcasts
+
   resources :users
   resources :sessions
 
@@ -11,6 +13,8 @@ Nutelo::Application.routes.draw do
 
   match '/login' => 'sessions#new'
   match '/logout' => 'sessions#destroy'
+  match '/about' => 'pages#about'
+  match '/search' => 'podcasts#search'
 
 
   # Sample of named route:
@@ -55,7 +59,7 @@ Nutelo::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'pages#index'
+  root :to => 'podcasts#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,14 +1,132 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Nutelo</title>
+	<meta name="author" content="Chris Matthieu" />
+	<meta name="copyright" content="Chris Matthieu" />
+
+	<title>Rubyology - Keeping up-to-date with Ruby and supporting frameworks like Rails, Sinatra, Adhearsion, etc.</title>
+	<meta name="description" content="A study of Ruby and supporting frameworks like Rails, Sinatra, Adhearsion, etc." />
+	<meta name="keywords" content="ruby, rails, ruby on rails, web 2.0" />
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<!-- start header -->
+	<div id="header">
+		<div id="logo">
+			<h1><a href="/">Rubyology</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<%if controller.controller_name == "podcasts" %>
+	              <li class="current_page_item"><a href="/podcasts"> Podcasts </a></li>
+	            <% else %>
+	            <li><a href="/podcasts"> Podcasts </a></li>
+	            <% end %>
+	            <%if controller.controller_name == "aboutme" %>
+	              <li class="current_page_item"><a href="/about">About Us</a></li>
+	            <% else %>
+	            <li><a href="/about">About Us</a></li>
+	            <% end %>
+
+			</ul>
+		</div>
+	</div>
+	<hr />
+	<!-- end header -->
+	<!-- start page -->
+	<div id="wrapper">
+		<div id="page">
+			<div id="page-bgtop">
+				<div id="page-bgbtm">
+					<div id="content">
+						<div class="post">
+	
 
 <%= yield %>
 
+				</div>
+				</div>
+				<div id="sidebar">
+					<ul>
+						<li>
+							<a href="http://itunes.apple.com/us/podcast/rubyology/id219191394"><img src="/images/rubyology.jpg" width="275" border="0"></a>
+						</li>
+						<li>
+							<h2>Search Archives</h2>
+							<ul>
+								<li>
+									<form action="/search" method="get">
+						                <fieldset><legend>Search</legend>
+						                    <label><span class="noscreen">Find:</span>
+						                    <span id="search-input-out"><input type="text" name="keywords" id="search-input" size="30" /></span></label>
+						                    <input type="image" src="/images/search_submit.gif" id="search-submit" value="OK" />
+						                </fieldset>
+						            </form>
+								</li>
+							</ul>
+						</li>
+						<li id="categories">
+							<h2>Follow Host on Twitter</h2>
+							<ul>
+								<li><a href="http://twitter.com/chrismatthieu">Chris Matthieu</a></li>
+								<!-- <li><a href="http://twitter.com/jsgoecke">Jason Goecke</a></li> -->
+							</ul>
+						</li>
+						<li>
+							<h2>RSS Feeds</h2>
+							<ul>
+								<li><a href="http://itunes.apple.com/us/podcast/rubyology/id219191394">iTunes</a></li>
+								<li><a href="http://feeds.feedburner.com/Rubyology">Feedburner</a></li>
+							</ul>
+						</li>
+						<li>
+							<h2>Admin</h2>
+							<ul>
+								<li>
+									<% if @current_user %>
+										<%= @current_user.username %> | 
+
+										<% if @current_user.admin %>
+											<%= link_to 'users', '/users' %> |
+										<% end %>
+
+										<%= link_to 'logout', '/logout' %>
+
+									<% else %>
+										<%= link_to 'register', new_user_path %> | 
+										<%= link_to 'login', '/login' %>
+									<% end %>
+									
+								</li>
+							</ul>
+
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end page -->
+<!-- start footer -->
+<div id="footer">
+	<p id="legal"> &copy;2011 GetVocal, inc. All Rights Reserved.
+		&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+		Design by <a href="http://www.freecsstemplates.org/">CSS Templates</a> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+		Icons by <a href="http://famfamfam.com/">FAMFAMFAM</a>. <a href="http://validator.w3.org/check/referer" class="xhtml" title="This page validates as XHTML">Valid <abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> &nbsp;&nbsp;&bull;&nbsp;&nbsp; <a href="http://jigsaw.w3.org/css-validator/check/referer" class="css" title="This page validates as CSS">Valid <abbr title="Cascading Style Sheets">CSS</abbr></a> </p>
+	<!-- end footer -->
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2483685-5";
+urchinTracker();
+</script>
+
+
 </body>
 </html>
+
