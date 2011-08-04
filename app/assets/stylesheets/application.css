@@ -204,6 +204,7 @@ hr {
 	text-transform: lowercase;
 	font-size: 2.8em;
 	color: #75012D;
+	line-height:normal;
 }
 
 .post .title a {
