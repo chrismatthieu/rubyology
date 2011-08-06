@@ -95,5 +95,23 @@ class PodcastsController < ApplicationController
     render :action => 'index'    
   end
   
+  def rss
+    #@headers["Content-Type"] = "application/xml" 
+    #@podcasts = Podcast.find(:all, :order => "timestamp desc")
+    #render :layout => false
+    
+    redirect_to 'http://feeds.feedburner.com/rubyology'
+    
+  end
+
+  def rssreal
+    # @headers["Content-Type"] = "application/xml" 
+    
+    @podcasts = Podcast.find(:all, :order => "created_at desc")
+    render :action => 'rss', :content_type => "application/xml", :layout => false 
+    
+  end
+  
+  
   
 end

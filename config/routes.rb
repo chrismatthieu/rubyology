@@ -1,6 +1,9 @@
 Rubyology::Application.routes.draw do
-  resources :podcasts
 
+  match '/podcasts/rss' => 'podcasts#rss'
+  match '/podcasts/rssreal' => 'podcasts#rssreal'
+
+  resources :podcasts
   resources :users
   resources :sessions
 
@@ -15,6 +18,7 @@ Rubyology::Application.routes.draw do
   match '/logout' => 'sessions#destroy'
   match '/about' => 'pages#about'
   match '/search' => 'podcasts#search'
+
 
 
   # Sample of named route:
