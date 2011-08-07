@@ -52,7 +52,9 @@
 <br />
 
 <% if @current_user && @current_user.admin %>
+<div class="entry">
   <%= link_to 'New podcast', :action => 'new' %>
+</div>
 <% end %>
 
 

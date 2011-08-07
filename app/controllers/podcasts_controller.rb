@@ -93,7 +93,9 @@ class PodcastsController < ApplicationController
     else
       conditions = ["poddesc ILIKE ? or podname ILIKE ?", @keywords, @keywords] unless @keywords == ""
     end
-    @podcasts = Podcast.find(:all, :conditions => conditions, :order => 'created_at desc')
+    # @podcasts = Podcast.find(:all, :conditions => conditions, :order => 'created_at desc')
+    @podcasts = Podcast.paginate :page => params[:page], :per_page => 3, :order => 'created_at DESC', :conditions => conditions
+    
     render :action => 'index'    
   end
   
