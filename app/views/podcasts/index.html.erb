@@ -32,7 +32,7 @@
 
 		    <% end %>
 
-		    <p><%= podcast.poddesc %></p>
+		    <p><%= raw(podcast.poddesc) %></p>
 
 		    <% if @current_user && @current_user.admin %>
 		      <p><%= link_to 'Edit', :action => 'edit', :id => podcast %> | <%= link_to 'Destroy', { :action => 'destroy', :id => podcast }, :confirm => 'Are you sure?', :method => :podcast %></p>
@@ -41,6 +41,10 @@
 	</div>
 
 <% end %>
+
+<div class="entry">
+<%= will_paginate @podcasts %>
+</div>
 
 <%# link_to 'Previous page', { :page => @podcast_pages.current.previous } if @podcast_pages.current.previous %>
 <%# link_to 'Next page', { :page => @podcast_pages.current.next } if @podcast_pages.current.next %> 

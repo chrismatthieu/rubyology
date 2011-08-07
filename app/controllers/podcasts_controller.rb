@@ -5,7 +5,9 @@ class PodcastsController < ApplicationController
   # GET /podcasts
   # GET /podcasts.json
   def index
-    @podcasts = Podcast.order("created_at DESC")
+    # @podcasts = Podcast.order("created_at DESC")
+    # @podcasts = Podcast.all :page => params[:page], :order => 'created_at DESC'
+    @podcasts = Podcast.paginate :page => params[:page], :per_page => 3, :order => 'created_at DESC'
 
     respond_to do |format|
       format.html # index.html.erb

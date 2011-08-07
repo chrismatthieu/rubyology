@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/p7r/will_paginate.git
+  revision: 53d1da6da003dc172ee054e4cc416d0723f00b88
+  branch: rails3
+  specs:
+    will_paginate (3.0.pre3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -102,3 +109,4 @@ DEPENDENCIES
   pg
   rails (= 3.1.0.rc5)
   sass-rails (~> 3.1.0.rc)
+  will_paginate!

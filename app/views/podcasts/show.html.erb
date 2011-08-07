@@ -34,7 +34,7 @@
 
 		    <% end %>
 
-		    <p><%= @podcast.poddesc %></p>
+		    <p><%= raw(@podcast.poddesc) %></p>
 
 		    <% if @current_user && @current_user.admin %>
 		      <p><%= link_to 'Edit', :action => 'edit', :id => @podcast %> | <%= link_to 'Destroy', { :action => 'destroy', :id => @podcast }, :confirm => 'Are you sure?', :method => :podcast %></p>
