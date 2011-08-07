@@ -15,19 +15,11 @@
 			<% else %>
 
 		      <p>
-		      <script language="JavaScript" src="/mp3s/audio-player.js"></script>
-		      <object type="application/x-shockwave-flash" data="/mp3s/player.swf" id="audioplayer1" height="24" width="290">
-		      <param name="movie" value="/mp3s/player.swf">
-		      <!-- param name="FlashVars" value="playerID=1&amp;soundFile=http://s3.amazonaws.com/rubyology/rubyology<%= @podcast.id %>.mp3" -->
-				<% if @podcast.podurl.blank? or @podcast.podurl == "mp3" %>
-		      		<param name="FlashVars" value="playerID=1&amp;soundFile=/mp3s/rubyology<%= @podcast.id %>.mp3">
-				<% else %>
-		      		<param name="FlashVars" value="playerID=1&amp;soundFile=<%= @podcast.podurl %>">
-				<% end %>
-		      <param name="quality" value="high">
-		      <param name="menu" value="false">
-		      <param name="wmode" value="transparent">
-		      </object>
+			<audio controls="controls">
+			  <source src="<%= @podcast.podurl %>" type="audio/mp3" />
+			  Your browser does not support the audio element.
+			</audio>
+		
 
 		      <br>
 		      <%# @podcast.podurl %></p>
