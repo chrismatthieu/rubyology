@@ -49,8 +49,8 @@ xml.rss :version => "2.0", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast
           xml.enclosure :url=>@url, :type=>"audio/mpeg" #add length
         end
         xml.guid @url
-        # xml.pubDate(podcast.created_at.rfc2822)
-        xml.pubDate(podcast.created_at) #.strftime("%A, %d %B %Y %I:%M:%S %z"))
+        xml.pubDate(podcast.created_at.rfc2822)
+        # xml.pubDate(podcast.created_at.strftime("%A, %d %B %Y %I:%M:%S %z"))
         xml.itunes :duration => "15:00" #add duration to database entry
         xml.itunes :keywords => "ruby,rails,ruby on rails,programming,web 2.0,rubyology" #add keywords to database entry
       end
